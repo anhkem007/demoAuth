@@ -1,11 +1,12 @@
 <div class="login-page">
   <div class="form">
+    <h3 *ngIf="loginFail">Đăng nhập thất bại</h3>
     <form class="login-form">
       <input  [(ngModel)]="user.Username" name="user" type="text" placeholder="username"/>
       <input  [(ngModel)]="user.Password" name="pass" type="password" style="margin-bottom: 10px" placeholder="password"/>
-      <p class="message" style="padding: 10px; text-align: left; font-size: 14px">Forgot? <a href="#">Password</a></p>
+      <p class="message" style="padding: 10px; text-align: left; font-size: 14px">Forgot? <a [routerLink]="['/Forgot']">Password</a></p>
       <button (click)="login()">login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p class="message">Not registered? <a [routerLink]="['/Create']">Create an account</a></p>
     </form>
   </div>
 </div>

@@ -1,0 +1,63 @@
+html, body, div, span, form, label, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+
+form {
+  position: relative;
+  width: 300px;
+  padding: 30px;
+}
+input {
+  display: block;
+  width: 100%;
+  height: 40px;
+
+  font-size: 20px !important;
+  line-height: 40px;
+
+&:focus {
+   outline: 0;
+ }
+}
+
+svg, line {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+
+input{
+&[maxlength="3"] {
+   padding-left: 40px;
+   letter-spacing: 60px;
+
+& + svg {
+
+line {
+  stroke-dasharray: 35;
+  stroke-dashoffset: -30;
+}
+}
+}
+
+&[maxlength="4"] {
+   padding-left: 20px;
+   letter-spacing: 50px;
+
+& + svg {
+
+line {
+  stroke-dasharray: 30;
+  stroke-dashoffset: -10;
+}
+}
+}
+}

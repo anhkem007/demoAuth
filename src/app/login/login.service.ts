@@ -13,6 +13,19 @@ export class LoginService {
   }
 
   CheckLogin(user: any): Observable<any> {
-    return this.httpClient.post(`${this.api}/CheckLogin`, user);
+    return this.httpClient.post(`${this.api}/getToken`, user);
   }
+
+  getOtp(username: string): Observable<any> {
+    return this.httpClient.post(`${this.api}/getOtp`, {Username: username});
+  }
+
+  verifyOtp(otp: string, id: number): Observable<any> {
+    return this.httpClient.post(`${this.api}/verifyOtp`, {Id: id, Otp: otp});
+  }
+
+  Create(user: any): Observable<any> {
+    return this.httpClient.post(`${this.api}`, user);
+  }
+
 }

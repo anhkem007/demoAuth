@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
               public router: Router
   ) {
     if (localStorage.getItem('token')){
-      router.navigate(['/welcome'])
+      router.navigate(['/Welcome']);
     }
   }
 
@@ -27,13 +27,16 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.loginService.CheckLogin(this.user).subscribe(res => {
-      if (res.auth) {
+      console.log(res);
+      if (!res.auth) {
         this.loginFail = true;
       }
 
       if (res.token) {
         this.loginFail = false;
         localStorage.setItem('token', JSON.stringify(res));
+        this.router.navigate(['/Welcome']);
+
       }
 
     });

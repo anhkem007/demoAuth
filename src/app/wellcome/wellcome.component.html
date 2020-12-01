@@ -1,1 +1,13 @@
-<p>wellcome works!</p>
+<div class="login-page">
+  <div class="form">
+    <div *ngIf="user">
+      <h3>Welcome: {{user.username}}</h3>
+      <h3>Phone: {{user.sdt}}</h3>
+      <h3>keyOtp: {{user.tokenOtp}}</h3>
+
+    </div>
+    <form class="login-form">
+      <button (click)="logout()">logout</button>
+    </form>
+  </div>
+</div>

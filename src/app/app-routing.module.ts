@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {CreateAccountComponent} from './create-account/create-account.component';
+import {WellcomeComponent} from './wellcome/wellcome.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,11 @@ const routes: Routes = [
   {
     path: 'Create',
     component: CreateAccountComponent
-  }
+  },
+  {
+    path: 'Welcome',
+    component: WellcomeComponent
+  },
 ];
 
 @NgModule({

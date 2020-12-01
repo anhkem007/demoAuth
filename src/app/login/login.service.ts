@@ -24,6 +24,14 @@ export class LoginService {
     return this.httpClient.post(`${this.api}/verifyOtp`, {Id: id, Otp: otp});
   }
 
+  sendMoney(otp: string, username: string, amount: number, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.httpClient.post(`${this.api}/SendMoney`, {Username: username, Otp: otp, Amount: amount}, {headers});
+  }
+
   Create(user: any): Observable<any> {
     return this.httpClient.post(`${this.api}`, user);
   }

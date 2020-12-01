@@ -1,13 +1,36 @@
-<div class="login-page">
+<div class="login-page" *ngIf="flag == 1">
   <div class="form">
     <div *ngIf="user">
       <h3>Welcome: {{user.username}}</h3>
       <h3>Phone: {{user.sdt}}</h3>
-      <h3>keyOtp: {{user.tokenOtp}}</h3>
+      <h3>Amount: {{user.amount}}</h3>
 
     </div>
     <form class="login-form">
+      <button (click)="nextStage()" style="margin-bottom: 20px">transfers</button>
       <button (click)="logout()">logout</button>
     </form>
   </div>
+</div>
+
+<div class="form" *ngIf="flag===2">
+  <h3>Chuyển tiền</h3>
+  <form class="login-form">
+    <input  [(ngModel)]="userReceive" name="user" type="text" placeholder="username"/>
+    <input  [(ngModel)]="amount" name="amount" type="number" placeholder="Số tiền"/>
+    <button (click)="reset()">gửi OTP</button>
+  </form>
+</div>
+
+<div class="form" *ngIf="flag === 3" style="width: 800px; right: 50px">
+  <h3>nhập vào mã otp đã gửi vào sđt: {{user.sdt}}</h3>
+  <form class="login-form">
+    <ng-otp-input (onInputChange)="getInputOtp($event)"  [config]="{length:5}"></ng-otp-input>
+    <button style="margin-top: 20px" (click)="send()">Xác thực</button>
+  </form>
+</div>
+
+<div class="form" *ngIf="flag===4">
+  <h3>Chuyển tiền thành công!</h3>
+  <button style="margin-top: 20px" (click)="backToHome()">về trang chủ</button>
 </div>
